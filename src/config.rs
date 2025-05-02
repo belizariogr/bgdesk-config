@@ -94,8 +94,7 @@ lazy_static::lazy_static! {
 }
 
 const CHARS: &[char] = &[
-    '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-    'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
 ];
 
 pub const RENDEZVOUS_SERVERS: &[&str] = &["bgdesk.boagestao.net"];
@@ -1845,6 +1844,12 @@ impl UserDefaultConfig {
             }
             keys::OPTION_CUSTOM_FPS => self.get_double_string(key, 30.0, 5.0, 120.0),
             keys::OPTION_ENABLE_FILE_COPY_PASTE => self.get_string(key, "Y", vec!["", "N"]),
+            keys::OPTION_DISABLE_AUDIO => self.get_string(key, "Y", vec!["", "N"]),
+            keys::OPTION_SHOW_MONITORS_TOOLBAR => self.get_string(key, "Y", vec!["", "N"]),
+            keys::OPTION_ENABLE_REMOTE_RESTART => self.get_string(key, "Y", vec!["", "N"]),
+            keys::OPTION_ENABLE_LAN_DISCOVERY => self.get_string(key, "Y", vec!["", "N"]), 
+            keys::OPTION_ALLOW_LOGON_SCREEN_PASSWORD => self.get_string(key, "Y", vec!["", "N"]),
+            keys::OPTION_HIDE_NETWORK_SETTINGS => self.get_string(key, "Y", vec!["", "N"]),
             _ => self
                 .get_after(key)
                 .map(|v| v.to_string())
@@ -2268,7 +2273,8 @@ pub fn is_disable_ab() -> bool {
 
 #[inline]
 pub fn is_disable_account() -> bool {
-    is_some_hard_opton("disable-account")
+    // is_some_hard_opton("disable-account")
+    true
 }
 
 #[inline]
