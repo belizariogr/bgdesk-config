@@ -422,11 +422,11 @@ pub struct VersionCheckResponse {
     pub url: String,
 }
 
-pub const VER_TYPE_RUSTDESK_CLIENT: &str = "rustdesk-client";
-pub const VER_TYPE_RUSTDESK_SERVER: &str = "rustdesk-server";
+pub const VER_TYPE_RUSTDESK_CLIENT: &str = "bgdesk-client";
+pub const VER_TYPE_RUSTDESK_SERVER: &str = "bgdesk-server";
 
 pub fn version_check_request(typ: String) -> (VersionCheckRequest, String) {
-    const URL: &str = "https://api.rustdesk.com/version/latest";
+    const URL: &str = "https://bgdesk.boagestao.net/version/latest";
 
     use sysinfo::System;
     let system = System::new();
