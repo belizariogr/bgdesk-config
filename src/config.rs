@@ -1828,10 +1828,10 @@ impl UserDefaultConfig {
 
     pub fn get(&self, key: &str) -> String {
         match key {
-            #[cfg(any(target_os = "android", target_os = "ios"))]
+            // #[cfg(any(target_os = "android", target_os = "ios"))]
             keys::OPTION_VIEW_STYLE => self.get_string(key, "adaptive", vec!["original"]),
-            #[cfg(not(any(target_os = "android", target_os = "ios")))]
-            keys::OPTION_VIEW_STYLE => self.get_string(key, "original", vec!["adaptive"]),
+            // #[cfg(not(any(target_os = "android", target_os = "ios")))]
+            // keys::OPTION_VIEW_STYLE => self.get_string(key, "original", vec!["adaptive"]),
             keys::OPTION_SCROLL_STYLE => self.get_string(key, "scrollauto", vec!["scrollbar"]),
             keys::OPTION_IMAGE_QUALITY => {
                 self.get_string(key, "balanced", vec!["best", "low", "custom"])
